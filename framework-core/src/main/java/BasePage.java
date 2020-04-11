@@ -10,24 +10,28 @@ public class BasePage {
     private static final int TIMEOUT = 5;
     private static final int POLLING = 100;
 
-    //System.out.println("Hello");
+    // Initializing webdriver and webdriver wait
     protected WebDriver driver;
     private WebDriverWait wait;
 
+    // Constructor
     public BasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, TIMEOUT, POLLING);
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
     }
 
+    // Function to be used to wait for specific elements to appear
     protected void waitForElementToAppear(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    // Function to be used to wait for specific elements to disappear
     protected void waitForElementToDisappear(By locator) {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
 
+    // Function to be used to wait for specific test to disappear
     protected void waitForTextToDisappear(By locator, String text) {
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(locator, text)));
     }

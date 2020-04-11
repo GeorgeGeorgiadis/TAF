@@ -4,13 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class GoogleHomepage extends BasePage {
+public class UsertestingHomepage extends BasePage {
 
     //Apply as Developer Button
     @FindBy(how = How.LINK_TEXT, using = "LOG IN")
     private WebElement developerApplyButton;
 
-    public GoogleHomepage(WebDriver driver) {
+    public UsertestingHomepage(WebDriver driver) {
         super(driver);
         driver.get("https://www.usertesting.com");
     }
